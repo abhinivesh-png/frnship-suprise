@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>1 Year of Beautiful Friendship💎 </title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            color: white;
+            text-align: center;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 600px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        h1 {
+            color: #ff9bd2;
+        }
+
+        p {
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 30px;
+            background: #ff4da6;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #ff1a8c;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .heart {
+            position: absolute;
+            color: #ff4da6;
+            font-size: 20px;
+            animation: float 6s linear infinite;
+        }
+
+        @keyframes float {
+            from { transform: translateY(100vh); opacity: 1; }
+            to { transform: translateY(-10vh); opacity: 0; }
+        }
+
+        #musicToggle {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            background: #ff4da6;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="musicToggle" onclick="toggleMusic()">🎵 Music On/Off</div>
+
+<div class="card">
+    <h1>1 Year of Us 💖👬</h1>
+
+    <p>
+        Hey hi   
+        It’s been 1 year meeting you…  
+        First day chats, late night calls, gossips   
+        Andha “bed ah pathaley thookam varum” dialogue   
+        Ippo nenacha kuda siripu varudhu 
+    </p>
+
+    <p>
+        Idhey maari indha friendship epomey irkanum 🤞  
+        Seekiram clg mudichitu jolly ah suthalam   
+        Unkuda enjoy pannanum nu avlo aasai 
+    </p>
+
+    <p>
+        Enga irundhalum happy ah irkanum adhan enaku periya wish ey coz  
+        Avlo special ni enaku 🫶✨  
+    </p>
+
+    <button onclick="fireworks()">Click for Surprise 🎆</button>
+</div>
+
+<audio id="bgMusic" loop>
+    <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const music = document.getElementById("bgMusic");
+
+window.onload = function() {
+    music.volume = 0.3;
+    music.play().catch(() => {
+        document.body.addEventListener("click", function() {
+            music.play();
+        }, { once: true });
+    });
+
+    createHearts();
+};
+
+function toggleMusic() {
+    if (music.paused) {
+        music.play();
+    } else {
+        music.pause();
+    }
+}
+
+function createHearts() {
+    setInterval(() => {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "💖";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = Math.random() * 20 + 10 + "px";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 6000);
+    }, 300);
+}
+
+function fireworks() {
+    for (let i = 0; i < 30; i++) {
+        const spark = document.createElement("div");
+        spark.style.position = "absolute";
+        spark.style.width = "5px";
+        spark.style.height = "5px";
+        spark.style.background = "gold";
+        spark.style.left = "50%";
+        spark.style.top = "50%";
+        spark.style.borderRadius = "50%";
+        spark.style.transform = `translate(${Math.random()*400-200}px, ${Math.random()*400-200}px)`;
+        spark.style.transition = "all 1s ease-out";
+        document.body.appendChild(spark);
+
+        setTimeout(() => spark.remove(), 1000);
+    }
+}
+</script>
+
+</body>
+</html>
