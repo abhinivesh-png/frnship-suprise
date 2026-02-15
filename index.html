@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>1 Year of Beautiful Friendship💎 </title>
+    <title>1 Year of Beautiful Friendship💎</title>
     <style>
         body {
             margin: 0;
@@ -50,6 +50,14 @@
             background: #ff1a8c;
         }
 
+        #surpriseMessage {
+            display: none;
+            margin-top: 20px;
+            font-size: 22px;
+            color: #ffd700;
+            animation: fadeIn 2s ease-in-out;
+        }
+
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
@@ -84,20 +92,22 @@
 <div id="musicToggle" onclick="toggleMusic()">🎵 Music On/Off</div>
 
 <div class="card">
-    <h1>1 Year of Us 💖👬</h1>
+    <h1>1 Year of Us Friendship💎👬</h1>
 
     <p>
-        Hey hi   
+        Hey hi  
         It’s been 1 year meeting you…  
-        First day chats, late night calls, gossips   
-        Andha “bed ah pathaley thookam varum” dialogue   
+        First day chats, late night calls, gossips  
+        Andha “bed ah pathaley thookam varum” dialogue  
         Ippo nenacha kuda siripu varudhu 
     </p>
 
     <p>
         Idhey maari indha friendship epomey irkanum 🤞  
-        Seekiram clg mudichitu jolly ah suthalam   
+        Seekiram clg mudichitu jolly ah suthalam  
         Unkuda enjoy pannanum nu avlo aasai 
+        having you by my side is all i wanted
+        Na epovum soldra mari "you're the best thing that happened to be life lately"
     </p>
 
     <p>
@@ -106,6 +116,11 @@
     </p>
 
     <button onclick="fireworks()">Click for Surprise 🎆</button>
+
+    <div id="surpriseMessage">
+        💎 You are my favorite person today tommorrow and forever 💖<br>
+        Happy 1 Year of Beautiful Friendship 🥹✨
+    </div>
 </div>
 
 <audio id="bgMusic" loop>
@@ -150,6 +165,9 @@ function createHearts() {
 }
 
 function fireworks() {
+
+    document.getElementById("surpriseMessage").style.display = "block";
+
     for (let i = 0; i < 30; i++) {
         const spark = document.createElement("div");
         spark.style.position = "absolute";
